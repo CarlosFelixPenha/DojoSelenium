@@ -1,4 +1,4 @@
-package com.novocurso.DojoSelenium;
+package Test;
 
 import static org.junit.Assert.fail;
 
@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-	public class AppTest {
+	public class AbrindoBrowser {
     // Instanciando a classe WebDriver
 	static WebDriver driver;
  
@@ -30,7 +30,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	// Fechando o Browser
-	driver.close();
+	//driver.close();
 		
 	}
 
