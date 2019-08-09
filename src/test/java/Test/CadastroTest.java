@@ -12,8 +12,9 @@ import Pages.CadastroPages;
 	public class CadastroTest {
     // Instanciando a classe WebDriver
 	static WebDriver driver;
-	static CadastroPages cadastropages;
-	static BuscaElementos buscaelementos;
+	static CadastroPages cadastroPages;
+	static BuscaElementos buscaElementos;
+ 	//static Tempo sleep;
  	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -22,30 +23,34 @@ import Pages.CadastroPages;
 	driver = new ChromeDriver();
 	// Abrindo o Browser
 	driver.get("https://automacaocombatista.herokuapp.com/");
-	cadastropages = new CadastroPages (driver);
-	buscaelementos = new BuscaElementos (driver);
+	driver.manage() .window() .maximize();
+	cadastroPages = new CadastroPages (driver);
+	buscaElementos = new BuscaElementos (driver);
+	//Sleep sleep = new Sleep (driver);
 	
 	}
 
+	//@Test
+	//public void cadastroUsuario() {
+		//cadastroPages.clicarAutomacaoWeb();
+		//cadastroPages.preenchercampos();
+		//buscaElementos.BuscaLinks();
+		
+	//}
+	
 	@Test
-	public void cadastroUsuario() {
-		//cadastropages.clicarAutomacaoWeb();
-		cadastropages.preenchercampos();
-		//buscaelementos.BuscaLinks();
+	public void buscarLinks() throws InterruptedException {
+		//Thread.sleep(1000);		
+		cadastroPages.clicarAutomacaoWeb();
+		buscaElementos.BuscaLinks();
 		
 	}
 	
-	@Test
-	public void buscarLinks() {
-		//cadastropages.clicarAutomacaoWeb();
-		buscaelementos.BuscaLinks();
-		
-	}
-	
+
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 	// Fechando o Browser
-	//driver.close();
+	driver.close();
 		
 	}
 
